@@ -15,10 +15,6 @@ def isPalindrome(target):
     return True
 
 def getPalindromeIndex(target):
-    if isPalindrome(target):
-        print('-1')
-        return
-
     skipcount = 0
     skipped_sindex = -1
     skipped_eindex = -1
@@ -33,7 +29,6 @@ def getPalindromeIndex(target):
                 eindex_at_skipping = eindex
                 skipped_index = sindex
                 sindex += 1
-                skipcount += 1
             elif skipcount == 1:
                 # set sindex back to skipindex
                 # skip eindex
@@ -41,10 +36,10 @@ def getPalindromeIndex(target):
                 eindex = eindex_at_skipping
                 skipped_index = eindex
                 eindex -= 1
-                skipcount += 1
             else:
                 print('no result') # should not happen
                 return
+            skipcount += 1
         else:
             eindex -= 1
             sindex += 1
